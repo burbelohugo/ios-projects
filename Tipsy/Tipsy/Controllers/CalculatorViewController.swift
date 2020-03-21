@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     
     var currentTip: Float = 10.0
     var currentSplit: Int = 2
+    var totalBill: String = ""
     
     @IBAction func tipChanged(_ sender: UIButton) {
         zeroPctButton.isSelected = false
@@ -38,8 +39,13 @@ class CalculatorViewController: UIViewController {
         let bill = Float(billTextField.text!)!
         billTextField.endEditing(true)
         let total = (bill * tip) + bill
-        print(total / Float(currentSplit))
+        totalBill = String(total / Float(currentSplit))
+        self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ResultsViewController
+        destinationVC.total = totalBill
+    }
 }
 
