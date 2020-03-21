@@ -46,6 +46,8 @@ class CalculatorViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! ResultsViewController
         destinationVC.total = totalBill
+        destinationVC.numPeople = currentSplit
+        destinationVC.tip = currentTip
     }
 }
 

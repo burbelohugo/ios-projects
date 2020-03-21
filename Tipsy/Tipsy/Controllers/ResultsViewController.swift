@@ -13,26 +13,17 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var settingsLabel: UILabel!
     
     var total: String = ""
+    var numPeople: Int = 0
+    var tip: Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         totalLabel.text = total
-
-        // Do any additional setup after loading the view.
+        settingsLabel.text = "Split between \(String(numPeople)) people, with \(String(tip))% tip"
     }
     
     @IBAction func recalculatePressed(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
